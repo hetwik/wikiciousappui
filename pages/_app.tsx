@@ -102,7 +102,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Mango Markets</title>
+        <title>Wikicious Markets</title>
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={metaTitle} />
         <meta name="description" content={metaDescription} />
