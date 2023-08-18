@@ -47,7 +47,7 @@ import useLocalStorageState from 'hooks/useLocalStorageState'
 // init react-query
 export const queryClient = new QueryClient()
 
-const metaTitle = 'Mango Markets – Safer. Smarter. Faster.'
+const metaTitle = 'Wikicious Markets – Safer. Smarter. Faster.'
 const metaDescription =
   'A magical new way to interact with DeFi. Groundbreaking safety features designed to keep your funds secure. The easiest way to margin trade any token pair. All powered by flashloans.'
 
