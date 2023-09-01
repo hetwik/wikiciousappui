@@ -239,7 +239,7 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
                 collapsed={false}
                 icon={<DocumentTextIcon className="h-5 w-5" />}
                 title={t('documentation')}
-                pagePath="https://docs.mango.markets"
+                pagePath="https://docs.wikicious.com"
                 hideIconBg
                 isExternal
                 showTooltip={false}
@@ -248,7 +248,7 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
                 collapsed={false}
                 icon={<BuildingLibraryIcon className="h-5 w-5" />}
                 title={t('governance')}
-                pagePath="https://dao.mango.markets"
+                pagePath="https://dao.wikicious.com"
                 hideIconBg
                 isExternal
                 showTooltip={false}
@@ -266,7 +266,7 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
                 collapsed={false}
                 icon={<NewspaperIcon className="h-5 w-5" />}
                 title={t('terms-of-use')}
-                pagePath="https://docs.mango.markets/legal"
+                pagePath="https://docs.wikicious.com/legal"
                 hideIconBg
                 isExternal
                 showTooltip={false}
@@ -275,7 +275,7 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
                 collapsed={false}
                 icon={<ExclamationTriangleIcon className="h-5 w-5" />}
                 title={t('risks')}
-                pagePath="https://docs.mango.markets/mango-markets/risks"
+                pagePath="https://docs.wikicious.com/wikicious-markets/risks"
                 hideIconBg
                 isExternal
                 showTooltip={false}

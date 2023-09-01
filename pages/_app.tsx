@@ -119,7 +119,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:description" content={metaDescription} />
         <meta
           name="twitter:image"
-          content="https://app.mango.markets/images/1200x600-share.png?34567879"
+          content="https://app.wikicious.com/images/1200x600-share.png?34567879"
         />
         <meta name="google" content="notranslate" />
         <link rel="manifest" href="/manifest.json"></link>
