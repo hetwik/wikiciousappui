@@ -13,7 +13,7 @@ const DEFAULT_LATEST_COMMIT = { sha: '', url: '' }
 const getLatestCommit = async () => {
   try {
     const response = await fetch(
-      `https://api.github.com/repos/blockworks-foundation/mango-v4-ui/commits`,
+      `https://api.github.com/repos/hetwik/wikiciousappui/commits`,
     )
     const data = await response.json()
 
@@ -57,7 +57,7 @@ const StatusBar = ({ collapsed }: { collapsed: boolean }) => {
         <Tooltip content={t('program-version')}>
           <a
             className="text-xs text-th-fgd-3 focus:outline-none md:hover:text-th-fgd-2"
-            href={`https://github.com/blockworks-foundation/mango-v4/releases`}
+            href={`https://github.com/hetwik/wikiciousappui/releases`}
             rel="noreferrer noopener"
             target="_blank"
           >
@@ -81,7 +81,7 @@ const StatusBar = ({ collapsed }: { collapsed: boolean }) => {
       <div className="col-span-1 flex items-center justify-end space-x-4 text-xs">
         <a
           className="flex items-center text-th-fgd-3 focus:outline-none md:hover:text-th-fgd-2"
-          href="https://docs.mango.markets"
+          href="https://docs.wikicious.com"
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -90,7 +90,7 @@ const StatusBar = ({ collapsed }: { collapsed: boolean }) => {
         </a>
         <a
           className="flex items-center text-th-fgd-3 focus:outline-none md:hover:text-th-fgd-2"
-          href="https://discord.gg/2uwjsBc5yw"
+          href="https://discord.gg/qGkaRU4fAA"
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -99,7 +99,7 @@ const StatusBar = ({ collapsed }: { collapsed: boolean }) => {
         </a>
         <a
           className="flex items-center text-th-fgd-3 focus:outline-none md:hover:text-th-fgd-2"
-          href="https://twitter.com/mangomarkets"
+          href="https://twitter.com/wikiciousmarket"
           rel="noreferrer noopener"
           target="_blank"
         >
