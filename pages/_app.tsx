@@ -47,9 +47,9 @@ import useLocalStorageState from 'hooks/useLocalStorageState'
 // init react-query
 export const queryClient = new QueryClient()
 
-const metaTitle = 'Wikicious Markets – Safer. Smarter. Faster.'
+const metaTitle = 'Wikicious: Buy Bitcoin & Crypto | Decentralized Crypto Exchange & Trading'
 const metaDescription =
-  'A magical new way to interact with DeFi. Groundbreaking safety features designed to keep your funds secure. The easiest way to margin trade any token pair. All powered by flashloans.'
+  'Buy BTC, ETH, XRP and more on Wikicious, a global leading decentralized crypto exchange. Dive into the world of Web3, invest in DeFi, and embrace NFTs. Register today to shape the future of finance!'
 
 // Do not add hooks to this component, that will cause unnecessary rerenders
 // Top level state hydrating/updating should go in MangoProvider
