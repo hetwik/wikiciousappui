@@ -181,7 +181,7 @@ const PageTitle = () => {
 
   return (
     <Head>
-      <title>{marketTitleString}Wikicious Markets</title>
+      <title>{marketTitleString}Wikicious: Buy Bitcoin & Crypto | Decentralized Crypto Exchange & Trading</title>
     </Head>
   )
 }
