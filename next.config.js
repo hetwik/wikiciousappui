@@ -47,8 +47,8 @@ module.exports = withSentryConfig(
     // Suppresses source map uploading logs during build
     silent: true,
 
-    org: 'mango',
-    project: 'mango-v4-ui',
+    org: 'wikicious',
+    project: 'wikicious-v1-ui',
   },
   {
     // For all available options, see:
