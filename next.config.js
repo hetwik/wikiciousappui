@@ -2,6 +2,14 @@ const { i18n } = require('./next-i18next.config')
 const webpack = require('webpack')
 const { withSentryConfig } = require('@sentry/nextjs')
 
+
+
+const withPWA = require('next-pwa')({
+  dest: 'public'
+})
+
+module.exports = withPWA({
+  // next.js config
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   i18n,
@@ -71,11 +79,4 @@ module.exports = withSentryConfig(
   },
 )
 
-
-const withPWA = require('next-pwa')({
-  dest: 'public'
-})
-
-module.exports = withPWA({
-  // next.js config
 })
