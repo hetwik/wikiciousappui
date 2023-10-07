@@ -182,11 +182,7 @@ const PageTitle = () => {
   return (
     <Head>
       <title>{marketTitleString}Wikicious: Buy Bitcoin & Crypto | Decentralized Crypto Exchange</title>
-      <script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('service-worker.js')
-  }
-</script>
+   
     </Head>
   )
 }
