@@ -131,11 +131,6 @@
       "react-tsparticles": true,
       "tsparticles>tsparticles-engine": true,
       "@sentry/nextjs>@sentry/webpack-plugin>@sentry/cli": true
-    },
-    "browser": {
-      "fs": false,
-      "os": false,
-      "path": false
     }
   }
 }

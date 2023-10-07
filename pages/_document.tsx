@@ -10,11 +10,6 @@ class MyDocument extends Document {
             src="/datafeeds/udf/dist/bundle.js"
             strategy="beforeInteractive"
           ></Script>
-   <script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('service-worker.js')
-  }
-</script>
         </Head>
         <body className="hide-scroll bg-th-bkg-1">
           <Main />
