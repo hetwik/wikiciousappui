@@ -135,6 +135,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <ThemeProvider defaultTheme="Mango Classic" storageKey={THEME_KEY}>
               <PageTitle />
               <Layout>
+                {/* @ts-ignore */}
                 <Component {...pageProps} />
               </Layout>
               <TransactionNotification />

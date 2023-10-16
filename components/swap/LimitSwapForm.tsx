@@ -767,6 +767,7 @@ const LimitSwapForm = ({
           </div>
           <div className="flex items-center">
             <div className="relative w-full">
+                {/* @ts-ignore */}
               <NumberFormat
                 inputMode="decimal"
                 thousandSeparator=","

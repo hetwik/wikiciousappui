@@ -243,6 +243,7 @@ function DepositForm({ onSuccess, token }: DepositFormProps) {
                 />
               </div>
               <div className="col-span-1">
+                {/* @ts-ignore */}
                 <NumberFormat
                   name="amountIn"
                   id="amountIn"

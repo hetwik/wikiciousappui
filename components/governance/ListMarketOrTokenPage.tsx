@@ -29,7 +29,10 @@ const ListMarketOrTokenPage = () => {
         {listOptions === LIST_OPTIONS.MARKET ? (
           <ListMarket goBack={() => setListOption(null)} />
         ) : listOptions === LIST_OPTIONS.TOKEN ? (
+          <>
+          {/* @ts-ignore */}
           <ListToken goBack={() => setListOption(null)} />
+          </>
         ) : (
           <>
             <h1 className="mb-4 flex items-center">{t('new-listing')}</h1>

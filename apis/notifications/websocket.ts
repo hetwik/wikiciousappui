@@ -58,6 +58,7 @@ export class NotificationsWebSocket {
   }
   handleClearSocketInterval() {
     if (this.pingInterval) {
+    // @ts-ignore
       clearInterval(this.pingInterval)
       this.pingInterval = null
     }

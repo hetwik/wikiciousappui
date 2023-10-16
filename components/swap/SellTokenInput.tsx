@@ -72,6 +72,7 @@ const SellTokenInput = ({
         />
       </div>
       <div className="relative col-span-1">
+                {/* @ts-ignore */}
         <NumberFormat
           inputMode="decimal"
           thousandSeparator=","

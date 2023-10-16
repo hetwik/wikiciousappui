@@ -446,6 +446,7 @@ const UserSetupModal = ({
                         <PencilIcon className="ml-2 h-5 w-5 text-th-fgd-3" />
                       </div>
                     </button>
+                {/* @ts-ignore */}
                     <NumberFormat
                       name="amountIn"
                       id="amountIn"

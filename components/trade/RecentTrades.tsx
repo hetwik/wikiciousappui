@@ -160,137 +160,142 @@ const RecentTrades = () => {
   }, [fills])
 
   return (
-    <ErrorBoundary>
-      <div className="hide-scroll h-full overflow-y-scroll">
-        <div className="flex items-center justify-between border-b border-th-bkg-3 py-1 pl-0 pr-2">
-          <Tooltip
-            className="hidden md:block"
-            content={t('trade:tooltip-volume-alert')}
-            delay={100}
-          >
-            <IconButton
-              onClick={() => setShowVolumeAlertModal(true)}
-              size="small"
-              hideBg
+    <>
+      {/* @ts-ignore */}
+      <ErrorBoundary>
+        <div className="hide-scroll h-full overflow-y-scroll">
+          <div className="flex items-center justify-between border-b border-th-bkg-3 py-1 pl-0 pr-2">
+            <Tooltip
+              className="hidden md:block"
+              content={t('trade:tooltip-volume-alert')}
+              delay={100}
             >
-              {soundSettings['recent-trades'] ? (
-                <BellAlertIcon className="h-4 w-4 text-th-fgd-3" />
-              ) : (
-                <BellSlashIcon className="h-4 w-4 text-th-fgd-3" />
-              )}
-            </IconButton>
-          </Tooltip>
-          <span className="text-xxs text-th-fgd-4 xl:text-xs">
-            {t('trade:buys')}:{' '}
-            <span className="text-th-up">{(buyRatio * 100).toFixed(1)}%</span>
-            <span className="px-2">|</span>
-            {t('trade:sells')}:{' '}
-            <span className="text-th-down">
-              {(sellRatio * 100).toFixed(1)}%
+              <IconButton
+                onClick={() => setShowVolumeAlertModal(true)}
+                size="small"
+                hideBg
+              >
+                {soundSettings['recent-trades'] ? (
+                  <BellAlertIcon className="h-4 w-4 text-th-fgd-3" />
+                ) : (
+                  <BellSlashIcon className="h-4 w-4 text-th-fgd-3" />
+                )}
+              </IconButton>
+            </Tooltip>
+            <span className="text-xxs text-th-fgd-4 xl:text-xs">
+              {t('trade:buys')}:{' '}
+              <span className="text-th-up">{(buyRatio * 100).toFixed(1)}%</span>
+              <span className="px-2">|</span>
+              {t('trade:sells')}:{' '}
+              <span className="text-th-down">
+                {(sellRatio * 100).toFixed(1)}%
+              </span>
             </span>
-          </span>
+          </div>
+          <div className="pl-0 pr-2">
+            <table className="min-w-full">
+              <thead>
+                <tr className="text-right text-xxs text-th-fgd-4">
+                  <th className="py-2 font-normal">{`${t(
+                    'price',
+                  )} (${quoteSymbol})`}</th>
+                  <th className="py-2 font-normal">
+                    {t('trade:size')} ({baseSymbol})
+                  </th>
+                  <th className="py-2 font-normal">{t('time')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {selectedMarket instanceof PerpMarket
+                  ? perpMarketQuery?.data &&
+                    Array.isArray(perpMarketQuery?.data) &&
+                    perpMarketQuery?.data.map((t) => {
+                      return (
+                        <tr className="font-mono text-xs" key={`${t.seq_num}`}>
+                          <td
+                            className={`pb-1.5 text-right tracking-tight ${
+                              ['buy', 'bid'].includes(t.taker_side)
+                                ? 'text-th-up'
+                                : 'text-th-down'
+                            }`}
+                          >
+                            {formatPrice(market, t.price)}
+                          </td>
+                          <td className="pb-1.5 text-right tracking-normal text-th-fgd-3">
+                            {formatSize(market, t.quantity)}
+                          </td>
+                          <td className="pb-1.5 text-right tracking-tight text-th-fgd-4">
+                            {t.block_datetime ? (
+                              <Tooltip
+                                placement="right"
+                                content={new Date(
+                                  t.block_datetime,
+                                ).toLocaleDateString()}
+                              >
+                                {new Date(
+                                  t.block_datetime,
+                                ).toLocaleTimeString()}
+                              </Tooltip>
+                            ) : (
+                              '-'
+                            )}
+                          </td>
+                        </tr>
+                      )
+                    })
+                  : !!fills.length &&
+                    fills.map((trade, i: number) => {
+                      let side
+                      let size
+                      let time
+                      if (isPerpFillEvent(trade)) {
+                        side = trade.takerSide === 0 ? 'bid' : 'ask'
+                        size = trade.quantity
+                        time = trade.timestamp.toString()
+                      } else {
+                        side = trade.side
+                        size = trade.size
+                        time = ''
+                      }
+
+                      const formattedPrice = formatPrice(market, trade.price)
+
+                      const formattedSize = formatSize(market, size)
+
+                      return (
+                        <tr className="font-mono text-xs" key={i}>
+                          <td
+                            className={`pb-1.5 text-right tracking-tight ${
+                              ['buy', 'bid'].includes(side)
+                                ? 'text-th-up'
+                                : 'text-th-down'
+                            }`}
+                          >
+                            {formattedPrice}
+                          </td>
+                          <td className="pb-1.5 text-right tracking-normal text-th-fgd-3">
+                            {formattedSize}
+                          </td>
+                          <td className="pb-1.5 text-right tracking-tight text-th-fgd-4">
+                            {time
+                              ? dayjs(Number(time) * 1000).format('hh:mma')
+                              : '-'}
+                          </td>
+                        </tr>
+                      )
+                    })}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div className="pl-0 pr-2">
-          <table className="min-w-full">
-            <thead>
-              <tr className="text-right text-xxs text-th-fgd-4">
-                <th className="py-2 font-normal">{`${t(
-                  'price',
-                )} (${quoteSymbol})`}</th>
-                <th className="py-2 font-normal">
-                  {t('trade:size')} ({baseSymbol})
-                </th>
-                <th className="py-2 font-normal">{t('time')}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {selectedMarket instanceof PerpMarket
-                ? perpMarketQuery?.data &&
-                  Array.isArray(perpMarketQuery?.data) &&
-                  perpMarketQuery?.data.map((t) => {
-                    return (
-                      <tr className="font-mono text-xs" key={`${t.seq_num}`}>
-                        <td
-                          className={`pb-1.5 text-right tracking-tight ${
-                            ['buy', 'bid'].includes(t.taker_side)
-                              ? 'text-th-up'
-                              : 'text-th-down'
-                          }`}
-                        >
-                          {formatPrice(market, t.price)}
-                        </td>
-                        <td className="pb-1.5 text-right tracking-normal text-th-fgd-3">
-                          {formatSize(market, t.quantity)}
-                        </td>
-                        <td className="pb-1.5 text-right tracking-tight text-th-fgd-4">
-                          {t.block_datetime ? (
-                            <Tooltip
-                              placement="right"
-                              content={new Date(
-                                t.block_datetime,
-                              ).toLocaleDateString()}
-                            >
-                              {new Date(t.block_datetime).toLocaleTimeString()}
-                            </Tooltip>
-                          ) : (
-                            '-'
-                          )}
-                        </td>
-                      </tr>
-                    )
-                  })
-                : !!fills.length &&
-                  fills.map((trade, i: number) => {
-                    let side
-                    let size
-                    let time
-                    if (isPerpFillEvent(trade)) {
-                      side = trade.takerSide === 0 ? 'bid' : 'ask'
-                      size = trade.quantity
-                      time = trade.timestamp.toString()
-                    } else {
-                      side = trade.side
-                      size = trade.size
-                      time = ''
-                    }
-
-                    const formattedPrice = formatPrice(market, trade.price)
-
-                    const formattedSize = formatSize(market, size)
-
-                    return (
-                      <tr className="font-mono text-xs" key={i}>
-                        <td
-                          className={`pb-1.5 text-right tracking-tight ${
-                            ['buy', 'bid'].includes(side)
-                              ? 'text-th-up'
-                              : 'text-th-down'
-                          }`}
-                        >
-                          {formattedPrice}
-                        </td>
-                        <td className="pb-1.5 text-right tracking-normal text-th-fgd-3">
-                          {formattedSize}
-                        </td>
-                        <td className="pb-1.5 text-right tracking-tight text-th-fgd-4">
-                          {time
-                            ? dayjs(Number(time) * 1000).format('hh:mma')
-                            : '-'}
-                        </td>
-                      </tr>
-                    )
-                  })}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      {showVolumeAlertModal ? (
-        <TradeVolumeAlertModal
-          isOpen={showVolumeAlertModal}
-          onClose={() => setShowVolumeAlertModal(false)}
-        />
-      ) : null}
-    </ErrorBoundary>
+        {showVolumeAlertModal ? (
+          <TradeVolumeAlertModal
+            isOpen={showVolumeAlertModal}
+            onClose={() => setShowVolumeAlertModal(false)}
+          />
+        ) : null}
+      </ErrorBoundary>
+    </>
   )
 }
 

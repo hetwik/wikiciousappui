@@ -7,6 +7,7 @@ const VotePage = () => {
   return (
     <div className="px-4 py-8 pb-20 sm:px-6 md:pb-16 lg:p-10">
       <GovernancePageWrapper>
+        {/* @ts-ignore */}
         <Vote />
       </GovernancePageWrapper>
     </div>

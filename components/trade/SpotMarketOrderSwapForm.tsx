@@ -391,6 +391,7 @@ export default function SpotMarketOrderSwapForm() {
           ) : null}
           <div className="flex flex-col">
             <div className="relative">
+                {/* @ts-ignore */}
               <NumberFormat
                 inputMode="decimal"
                 thousandSeparator=","
@@ -436,6 +437,7 @@ export default function SpotMarketOrderSwapForm() {
                   <QuestionMarkCircleIcon className="h-5 w-5 text-th-fgd-3" />
                 </div>
               )}
+              {/* @ts-ignore */}
               <NumberFormat
                 inputMode="decimal"
                 thousandSeparator=","

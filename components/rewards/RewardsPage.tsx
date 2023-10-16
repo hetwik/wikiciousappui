@@ -699,6 +699,7 @@ const ClaimWinModal = ({ isOpen, onClose }: ModalProps) => {
         </Button>
       </Modal>
       <div className="relative z-50">
+        {/* @ts-ignore */}
         <Particles id="tsparticles" options={particleOptions} />
       </div>
     </>
