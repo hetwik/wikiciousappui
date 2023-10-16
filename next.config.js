@@ -1,9 +1,14 @@
 const { i18n } = require('./next-i18next.config')
 const webpack = require('webpack')
 const { withSentryConfig } = require('@sentry/nextjs')
-
+const withPWA = require('next-pwa');
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig =  withPWA({
+  pwa: {
+    dest: 'public',
+    register:true,
+    skipWaiting:true,
+  },
   i18n,
   images: {
     domains: ['raw.githubusercontent.com', 'arweave.net', 'www.dual.finance'],
@@ -36,7 +41,7 @@ const nextConfig = {
 
     return config
   },
-}
+})
 
 module.exports = withSentryConfig(
   nextConfig,
