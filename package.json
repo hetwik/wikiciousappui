@@ -15,7 +15,9 @@
     "typecheck": "tsc --noEmit",
     "prepare": "husky install",
     "lint-all": "yarn typecheck && yarn lint && yarn format",
-    "postinstall": "tar -xzC public -f vendor/charting_library.tgz;tar -xzC public -f vendor/datafeeds.tgz"
+    "postinstall": "yarn chartingLib && yarn dataFeedsLib",
+    "chartingLib": "tar -xzC public -f vendor/charting_library.tgz",
+    "dataFeedsLib": "tar -xzC public -f vendor/datafeeds.tgz"
   },
   "engines": {
     "node": ">=18.x"
