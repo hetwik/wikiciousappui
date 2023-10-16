@@ -77,18 +77,24 @@ const Vote = () => {
       ) : (
         <>
           {!loadingVoter ? (
+            <>
+            {/* @ts-ignore */}
             <OnBoarding minVotes={new BN(1000000)}></OnBoarding>
+            </>
           ) : null}
           <div className="space-y-3">
             {votingProposals.length ? (
               votingProposals.map(
                 (x) =>
                   mangoMint && (
+                    <>
+                    {/* @ts-ignore */}
                     <ProposalCard
                       key={x.pubkey.toBase58()}
                       proposal={x}
                       mangoMint={mangoMint}
-                    ></ProposalCard>
+                      ></ProposalCard>
+                      </>
                   ),
               )
             ) : (

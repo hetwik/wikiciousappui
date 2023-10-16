@@ -156,6 +156,7 @@ const ModifyTvOrderModal = ({
       </div>
       <div className="mb-4">
         <Label text={t('trade:limit-price')} />
+        {/* @ts-ignore */}
         <NumberFormat
           name="price"
           id="price"
@@ -177,6 +178,7 @@ const ModifyTvOrderModal = ({
           useMargin={savedCheckboxSettings.margin}
           large
         />
+        {/* @ts-ignore */}
         <NumberFormat
           name="size"
           id="size"

@@ -284,6 +284,7 @@ const TradeAdvancedPage = () => {
     <TradeHotKeys>
       <div className="pb-[27px]">
         <FavoriteMarketsBar />
+        {/* @ts-ignore */}
         <ResponsiveGridLayout
           layouts={layouts}
           breakpoints={gridBreakpoints}
@@ -313,7 +314,8 @@ const TradeAdvancedPage = () => {
             className="h-full border border-x-0 border-th-bkg-3"
           >
             <div className={`relative h-full overflow-auto`}>
-              <OrderbookTooltip />
+              <OrderbookTooltip />      
+              {/* @ts-ignore */}
               <TradingChartContainer />
             </div>
           </div>

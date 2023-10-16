@@ -223,6 +223,7 @@ function RepayForm({ onSuccess, token }: RepayFormProps) {
                 />
               </div>
               <div className="col-span-1">
+                {/* @ts-ignore */}
                 <NumberFormat
                   name="amountIn"
                   id="amountIn"

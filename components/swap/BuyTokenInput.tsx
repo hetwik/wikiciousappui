@@ -75,6 +75,7 @@ const BuyTokenInput = ({
           </div>
         ) : (
           <>
+          {/* @ts-ignore */}
             <NumberFormat
               inputMode="decimal"
               thousandSeparator=","

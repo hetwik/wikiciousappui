@@ -70,6 +70,7 @@ const TradeVolumeAlertModal = ({ isOpen, onClose }: ModalProps) => {
         <>
           <div className="my-4">
             <Label text={t('trade:interval-seconds')} />
+            {/* @ts-ignore */}
             <NumberFormat
               name="seconds"
               id="seconds"
@@ -91,6 +92,7 @@ const TradeVolumeAlertModal = ({ isOpen, onClose }: ModalProps) => {
           </div>
           <div className="mb-6">
             <Label text={t('trade:notional-volume')} />
+        {/* @ts-ignore */}
             <NumberFormat
               name="value"
               id="value"

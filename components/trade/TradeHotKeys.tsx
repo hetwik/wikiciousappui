@@ -379,13 +379,15 @@ const TradeHotKeys = ({ children }: { children: ReactNode }) => {
     !isUnownedAccount
 
   return showHotKeys ? (
+    <>
+    {/* @ts-ignore */}
     <Hotkeys
       keyName={hotKeys.map((k: HotKey) => k.keySequence).toString()}
       onKeyDown={onKeyDown}
     >
       {children}
     </Hotkeys>
-  ) : (
+    </>) : (
     <>{children}</>
   )
 }

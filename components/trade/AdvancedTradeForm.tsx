@@ -537,6 +537,7 @@ const AdvancedTradeForm = () => {
                         <QuestionMarkCircleIcon className="h-5 w-5 text-th-fgd-3" />
                       </div>
                     )}
+                    {/* @ts-ignore */}
                     <NumberFormat
                       inputMode="decimal"
                       thousandSeparator=","
@@ -561,6 +562,7 @@ const AdvancedTradeForm = () => {
               />
               <div className="flex flex-col">
                 <div className="relative">
+                {/* @ts-ignore */}
                   <NumberFormat
                     inputMode="decimal"
                     thousandSeparator=","
@@ -604,6 +606,7 @@ const AdvancedTradeForm = () => {
                       <QuestionMarkCircleIcon className="h-5 w-5 text-th-fgd-3" />
                     </div>
                   )}
+                  {/* @ts-ignore */}
                   <NumberFormat
                     inputMode="decimal"
                     thousandSeparator=","

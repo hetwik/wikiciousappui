@@ -103,71 +103,74 @@ const SuccessParticles = () => {
   return (animationSettings['swap-success'] || showForTheme) &&
     tokenLogo &&
     (showForSwap || showForTrade || showForTheme) ? (
-    <Particles
-      id="tsparticles"
-      options={{
-        detectRetina: true,
-        particles: {
-          opacity: {
-            value: 0,
-          },
-        },
-        emitters: {
-          life: {
-            count: 30,
-            delay: 0,
-            duration: 0.1,
-          },
-          startCount: 0,
+    <>
+      {/* @ts-ignore */}
+      <Particles
+        id="tsparticles"
+        options={{
+          detectRetina: true,
           particles: {
-            shape: {
-              type: 'image',
-              options: {
-                image: {
-                  src: tokenLogo,
-                  width: 48,
-                  height: 48,
-                },
-              },
-            },
-            rotate: {
-              value: 0,
-              random: true,
-              direction: 'clockwise',
-              animation: {
-                enable: true,
-                speed: 15,
-                sync: false,
-              },
-            },
             opacity: {
-              value: 1,
+              value: 0,
             },
-            size: {
-              value: 20,
-              random: false,
+          },
+          emitters: {
+            life: {
+              count: 30,
+              delay: 0,
+              duration: 0.1,
             },
-            move: {
-              angle: 10,
-              attract: {
-                rotate: {
-                  x: 600,
-                  y: 1200,
+            startCount: 0,
+            particles: {
+              shape: {
+                type: 'image',
+                options: {
+                  image: {
+                    src: tokenLogo,
+                    width: 48,
+                    height: 48,
+                  },
                 },
               },
-              direction: 'bottom',
-              enable: true,
-              speed: { min: 8, max: 16 },
-              outMode: 'destroy',
+              rotate: {
+                value: 0,
+                random: true,
+                direction: 'clockwise',
+                animation: {
+                  enable: true,
+                  speed: 15,
+                  sync: false,
+                },
+              },
+              opacity: {
+                value: 1,
+              },
+              size: {
+                value: 20,
+                random: false,
+              },
+              move: {
+                angle: 10,
+                attract: {
+                  rotate: {
+                    x: 600,
+                    y: 1200,
+                  },
+                },
+                direction: 'bottom',
+                enable: true,
+                speed: { min: 8, max: 16 },
+                outMode: 'destroy',
+              },
+            },
+            position: {
+              x: { random: true },
+              y: 0,
             },
           },
-          position: {
-            x: { random: true },
-            y: 0,
-          },
-        },
-      }}
-    />
+        }}
+      />
+    </>
   ) : null
 }
 

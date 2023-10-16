@@ -383,6 +383,7 @@ const AccountSizeFormInput = ({
         ) : null}
       </div>
       <div className="flex items-center">
+        {/* @ts-ignore */}
         <NumberFormat
           name={type as string}
           id={type as string}

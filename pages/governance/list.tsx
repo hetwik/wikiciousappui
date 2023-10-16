@@ -23,6 +23,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
 }
 
 const Governance: NextPage = () => {
+  {/* @ts-ignore */}
   return <ListMarketOrTokenPage />
 }
 

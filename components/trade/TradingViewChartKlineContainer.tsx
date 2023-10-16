@@ -12,17 +12,22 @@ const TradingViewChartKlineContainer = () => {
     <>
       {isFullView ? (
         createPortal(
+          <>
+          {/* @ts-ignore */}
           <TradingViewChartKline
             setIsFullView={setIsFullView}
             isFullView={isFullView}
-          ></TradingViewChartKline>,
+          ></TradingViewChartKline></>,
           document.body,
         )
       ) : (
+        <>
+        {/* @ts-ignore */}
         <TradingViewChartKline
           setIsFullView={setIsFullView}
           isFullView={isFullView}
-        ></TradingViewChartKline>
+          ></TradingViewChartKline>
+          </>
       )}
     </>
   )

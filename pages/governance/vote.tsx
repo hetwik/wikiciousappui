@@ -20,6 +20,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
 }
 
 const ListToken: NextPage = () => {
+  {/* @ts-ignore */}
   return <VotePage />
 }
 
