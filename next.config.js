@@ -46,6 +46,7 @@ const nextConfig = {
 
 module.exports = withSentryConfig(
   nextConfig,
+  withPWA,
   {
     // For all available options, see:
     // https://github.com/getsentry/sentry-webpack-plugin#options
