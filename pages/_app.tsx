@@ -47,7 +47,7 @@ import useLocalStorageState from 'hooks/useLocalStorageState'
 // init react-query
 export const queryClient = new QueryClient()
 
-const metaTitle = 'Wikicious: Buy Bitcoin & Crypto | Decentralized Crypto Exchange & Trading'
+const metaTitle = 'Wikicious: Buy & Sell Crypto'
 const metaDescription =
   'Buy BTC, ETH, XRP and more on Wikicious, a global leading decentralized crypto exchange. Dive into the world of Web3, invest in DeFi, and embrace NFTs. Register today to shape the future of finance!'
 
@@ -182,7 +182,7 @@ const PageTitle = () => {
 
   return (
     <Head>
-      <title>{marketTitleString}Wikicious: Buy Bitcoin & Crypto | Decentralized Crypto Exchange</title>
+      <title>{marketTitleString}Wikicious: Buy & Sell Crypto</title>
    
     </Head>
   )
