@@ -8,7 +8,7 @@
     "ci-dupe-check": "npx yarn-deduplicate --list --fail",
     "bigint-fix": "cd node_modules/bigint-buffer && yarn rebuild && cd ../../",
     "dev": "rm -rf .next && next dev",
-    "build": "next build",
+    "build": "next build && rm -rf wikiciousappui && npx @pwabuilder/cli create wikiciousappui",
     "start": "next start",
     "format": "prettier --check .",
     "lint": "next lint --quiet",
@@ -17,7 +17,8 @@
     "lint-all": "yarn typecheck && yarn lint && yarn format",
     "postinstall": "yarn chartingLib && yarn dataFeedsLib",
     "chartingLib": "tar -xzC public -f vendor/charting_library.tgz",
-    "dataFeedsLib": "tar -xzC public -f vendor/datafeeds.tgz"
+    "dataFeedsLib": "tar -xzC public -f vendor/datafeeds.tgz",
+    "pwa": "cd wikiciousappui && pwa start"
   },
   "engines": {
     "node": ">=18.x"
