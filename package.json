@@ -9,7 +9,7 @@
     "bigint-fix": "cd node_modules/bigint-buffer && yarn rebuild && cd ../../",
     "dev": "rm -rf .next && next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "rm -rf .next && next start",
     "format": "prettier --check .",
     "lint": "next lint --quiet",
     "typecheck": "tsc --noEmit",

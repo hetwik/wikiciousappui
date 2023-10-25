@@ -125,6 +125,8 @@ const DisplaySettings = () => {
     },
     [router, pathname, query, asPath, setSavedLanguage],
   )
+  
+  console.log('this is theme: ', theme, themes, DEFAULT_THEMES[0] )
 
   return (
     <>
