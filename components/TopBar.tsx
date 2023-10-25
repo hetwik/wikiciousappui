@@ -31,6 +31,7 @@ import mangoStore from '@store/mangoStore'
 import UserSetupModal from './modals/UserSetupModal'
 import { IS_ONBOARDED_KEY } from 'utils/constants'
 import useLocalStorageState from 'hooks/useLocalStorageState'
+import { useTheme } from 'next-themes'
 
 const set = mangoStore.getState().set
 
@@ -39,6 +40,7 @@ const TopBar = () => {
   const { mangoAccount, mangoAccountAddress } = useMangoAccount()
   const { connected } = useWallet()
   const themeData = mangoStore((s) => s.themeData)
+  const { theme } = useTheme()
 
   const [action, setAction] = useState<'deposit' | 'withdraw'>('deposit')
   const [copied, setCopied] = useState('')
@@ -110,9 +112,9 @@ const TopBar = () => {
           ) : null} */}
           <div className="flex h-[63px] w-16 items-center justify-center bg-th-bkg-1 md:hidden">
             <img
-              className="h-9 w-9 flex-shrink-0"
+              className={`h-9 w-9 flex-shrink-0 ${theme !== 'Light' ? 'invert' : 'invert-0'}`}
               src={themeData.logoPath}
-              alt="logo"
+              alt="wikicious"
             />
           </div>
           {!connected ? (

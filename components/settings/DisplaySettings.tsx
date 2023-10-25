@@ -49,7 +49,8 @@ const LANGS = [
   // { locale: 'zh', name: 'chinese', description: 'simplified chinese' },
 ]
 
-const DEFAULT_THEMES = [
+/*
+const AVAILABLE_THEMES = [
   'light',
   'medium',
   'dark',
@@ -60,6 +61,12 @@ const DEFAULT_THEMES = [
   'blueberry',
   'lychee',
   'olive',
+]
+*/
+const DEFAULT_THEMES = [
+  'high-contrast',
+  'dark',
+  'light',
 ]
 
 const DisplaySettings = () => {
@@ -245,11 +252,10 @@ const ChartLayoutButton = ({
   const [tradeLayout] = useLocalStorageState(TRADE_LAYOUT_KEY, 'chartLeft')
   return (
     <button
-      className={`flex h-max items-center justify-center rounded border ${
-        tradeLayout === position
-          ? 'border-th-active'
-          : 'border-th-bkg-4 md:hover:border-th-fgd-4'
-      } p-0.5 focus-visible:border-th-fgd-4`}
+      className={`flex h-max items-center justify-center rounded border ${tradeLayout === position
+        ? 'border-th-active'
+        : 'border-th-bkg-4 md:hover:border-th-fgd-4'
+        } p-0.5 focus-visible:border-th-fgd-4`}
       onClick={() => onClick(position)}
     >
       {icon}
