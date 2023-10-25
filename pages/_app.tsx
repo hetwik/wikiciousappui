@@ -132,7 +132,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             autoConnect={autoConnect}
           >
             <MangoProvider />
-            <ThemeProvider defaultTheme="Mango Classic" storageKey={THEME_KEY}>
+            <ThemeProvider defaultTheme="High Contrast" storageKey={THEME_KEY}>
               <PageTitle />
               <Layout>
                 {/* @ts-ignore */}
@@ -175,15 +175,14 @@ const PageTitle = () => {
 
   const marketTitleString =
     market && selectedMarket && router.pathname == '/trade'
-      ? `${price?.toFixed(getDecimalCount(market.tickSize))} ${
-          selectedMarket.name
-        } - `
+      ? `${price?.toFixed(getDecimalCount(market.tickSize))} ${selectedMarket.name
+      } - `
       : ''
 
   return (
     <Head>
       <title>{marketTitleString}Wikicious: Buy & Sell Crypto</title>
-   
+
     </Head>
   )
 }
