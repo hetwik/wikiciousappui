@@ -1,5 +1,6 @@
 {
   "short_name": "Wikicious",
+  "display": "fullscreen",
   "name": "Wikicious Markets",
   "description": "Wikicious Markets - Decentralised, cross-margin trading up to 10x leverage with lightning speed and near-zero fees",
   "icons": [

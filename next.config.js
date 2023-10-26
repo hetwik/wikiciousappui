@@ -7,7 +7,6 @@ const withPWAConfig = require('next-pwa')({
   sw: '/sw.js',
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
-  display: 'fullscreen'
 })
 
 /** @type {import('next').NextConfig} */
