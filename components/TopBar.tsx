@@ -32,6 +32,7 @@ import UserSetupModal from './modals/UserSetupModal'
 import { IS_ONBOARDED_KEY } from 'utils/constants'
 import useLocalStorageState from 'hooks/useLocalStorageState'
 import { useTheme } from 'next-themes'
+import { BsGlobe } from 'react-icons/bs'
 
 const set = mangoStore.getState().set
 
@@ -111,10 +112,16 @@ const TopBar = () => {
             </div>
           ) : null} */}
           <div className="flex h-[63px] w-16 items-center justify-center bg-th-bkg-1 md:hidden">
+            {/*
             <img
               className={`h-9 w-9 flex-shrink-0 ${theme !== 'Light' ? 'invert' : 'invert-0'}`}
               src={themeData.logoPath}
               alt="wikicious"
+            />
+              */}
+            <BsGlobe 
+                  className='h-9 w-9 flex-shrink-0'
+              size={25}
             />
           </div>
           {!connected ? (

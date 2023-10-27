@@ -38,6 +38,8 @@ import { useViewport } from 'hooks/useViewport'
 import useLocalStorageState from 'hooks/useLocalStorageState'
 import { SIDEBAR_COLLAPSE_KEY } from 'utils/constants'
 
+import { BsGlobe } from 'react-icons/bs'
+
 const SideNav = ({ collapsed }: { collapsed: boolean }) => {
   const { t } = useTranslation(['common', 'search'])
   const { connected, publicKey } = useWallet()
@@ -129,10 +131,16 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
               <div
                 className={`flex h-16 flex-shrink-0 cursor-pointer items-center bg-th-bkg-1`}
               >
+                {/*
                 <img
                   className={`h-9 w-9 flex-shrink-0 ${theme !== 'Light' ? 'invert' : 'invert-0'}`}
                   src={themeData.logoPath}
                   alt="wikicious"
+                />
+                */}
+                <BsGlobe
+                  className='h-9 w-9 flex-shrink-0'
+                  size={25}
                 />
                 <Transition
                   show={!collapsed}
