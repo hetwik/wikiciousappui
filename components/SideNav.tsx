@@ -38,6 +38,8 @@ import { useViewport } from 'hooks/useViewport'
 import useLocalStorageState from 'hooks/useLocalStorageState'
 import { SIDEBAR_COLLAPSE_KEY } from 'utils/constants'
 
+import { BsGlobe } from 'react-icons/bs'
+
 const SideNav = ({ collapsed }: { collapsed: boolean }) => {
   const { t } = useTranslation(['common', 'search'])
   const { connected, publicKey } = useWallet()
@@ -103,9 +105,8 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
 
   return (
     <div
-      className={`transition-all duration-${sideBarAnimationDuration} ${
-        collapsed ? 'w-[64px]' : 'w-[200px]'
-      } border-r border-th-bkg-3 bg-th-bkg-1 bg-contain`}
+      className={`transition-all duration-${sideBarAnimationDuration} ${collapsed ? 'w-[64px]' : 'w-[200px]'
+        } border-r border-th-bkg-3 bg-th-bkg-1 bg-contain`}
       style={
         collapsed
           ? { backgroundImage: `url(${themeData.sideTilePath})` }
@@ -124,17 +125,22 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
         <div className="mb-2">
           <Link href={'/'} shallow={true} passHref legacyBehavior>
             <div
-              className={`items-center transition-all duration-${sideBarAnimationDuration} ease-in-out ${
-                collapsed ? '' : 'justify-start'
-              } pb-1 pl-3`}
+              className={`items-center transition-all duration-${sideBarAnimationDuration} ease-in-out ${collapsed ? '' : 'justify-start'
+                } pb-1 pl-3`}
             >
               <div
                 className={`flex h-16 flex-shrink-0 cursor-pointer items-center bg-th-bkg-1`}
               >
+                {/*
                 <img
-                  className={`h-9 w-9 flex-shrink-0`}
+                  className={`h-9 w-9 flex-shrink-0 ${theme !== 'Light' ? 'invert' : 'invert-0'}`}
                   src={themeData.logoPath}
-                  alt="logo"
+                  alt="wikicious"
+                />
+                */}
+                <BsGlobe
+                  className='h-9 w-9 flex-shrink-0'
+                  size={25}
                 />
                 <Transition
                   show={!collapsed}
@@ -306,8 +312,8 @@ const SideNav = ({ collapsed }: { collapsed: boolean }) => {
                   {mangoAccount
                     ? mangoAccount.name
                     : connected
-                    ? 'No Account'
-                    : 'Connect'}
+                      ? 'No Account'
+                      : 'Connect'}
                 </p>
               </div>
             }
@@ -351,13 +357,12 @@ const MenuItem = ({
       <Link
         href={pagePath}
         shallow={true}
-        className={`flex cursor-pointer pl-4 focus:outline-none focus-visible:text-th-active md:hover:text-th-active ${
-          active
-            ? 'text-th-active'
-            : theme === 'Light'
+        className={`flex cursor-pointer pl-4 focus:outline-none focus-visible:text-th-active md:hover:text-th-active ${active
+          ? 'text-th-active'
+          : theme === 'Light'
             ? 'text-th-fgd-3'
             : 'text-th-fgd-2'
-        } ${hideIconBg ? 'py-1' : 'py-1.5 xl:py-2'}`}
+          } ${hideIconBg ? 'py-1' : 'py-1.5 xl:py-2'}`}
         target={isExternal ? '_blank' : ''}
         rel={isExternal ? 'noopener noreferrer' : ''}
       >
@@ -368,9 +373,8 @@ const MenuItem = ({
                 className={
                   hideIconBg
                     ? ''
-                    : `flex h-8 w-8 items-center justify-center rounded-full ${
-                        theme === 'Light' ? 'bg-th-bkg-2' : 'bg-th-bkg-3'
-                      }`
+                    : `flex h-8 w-8 items-center justify-center rounded-full ${theme === 'Light' ? 'bg-th-bkg-2' : 'bg-th-bkg-3'
+                    }`
                 }
               >
                 {icon}
@@ -421,39 +425,33 @@ export const ExpandableMenuItem = ({
   return collapsed ? (
     <Popover className={`relative z-30 ${alignBottom ? '' : 'py-2 pl-4'}`}>
       <Popover.Button
-        className={`${theme === 'Light' ? 'text-th-fgd-3' : 'text-th-fgd-2'} ${
-          alignBottom
-            ? 'focus-visible:bg-th-bkg-3'
-            : 'focus-visible:text-th-active'
-        } md:hover:text-th-active`}
+        className={`${theme === 'Light' ? 'text-th-fgd-3' : 'text-th-fgd-2'} ${alignBottom
+          ? 'focus-visible:bg-th-bkg-3'
+          : 'focus-visible:text-th-active'
+          } md:hover:text-th-active`}
       >
         <div
-          className={` ${
-            hideIconBg
-              ? ''
-              : `flex h-8 w-8 items-center justify-center rounded-full ${
-                  theme === 'Light' ? 'bg-th-bkg-2' : 'bg-th-bkg-3'
-                }`
-          } ${
-            alignBottom
+          className={` ${hideIconBg
+            ? ''
+            : `flex h-8 w-8 items-center justify-center rounded-full ${theme === 'Light' ? 'bg-th-bkg-2' : 'bg-th-bkg-3'
+            }`
+            } ${alignBottom
               ? 'flex h-[64px] w-[64px] items-center justify-center hover:bg-th-bkg-2'
               : ''
-          }`}
+            }`}
         >
           {icon}
         </div>
       </Popover.Button>
       <Popover.Panel
-        className={`absolute left-[64px] z-20 w-56 rounded-md rounded-l-none bg-th-bkg-1 focus:outline-none ${
-          alignBottom
-            ? 'bottom-0 rounded-b-none border-b-0 p-0'
-            : 'top-1/2 -translate-y-1/2'
-        }`}
+        className={`absolute left-[64px] z-20 w-56 rounded-md rounded-l-none bg-th-bkg-1 focus:outline-none ${alignBottom
+          ? 'bottom-0 rounded-b-none border-b-0 p-0'
+          : 'top-1/2 -translate-y-1/2'
+          }`}
       >
         <div
-          className={`rounded-md rounded-l-none bg-th-bkg-2 ${
-            alignBottom ? 'pb-2 pt-4' : 'py-2'
-          }`}
+          className={`rounded-md rounded-l-none bg-th-bkg-2 ${alignBottom ? 'pb-2 pt-4' : 'py-2'
+            }`}
         >
           <div className="flex items-center justify-between pl-4 pr-2">
             {panelTitle ? (
@@ -469,11 +467,10 @@ export const ExpandableMenuItem = ({
       {({ open }) => (
         <>
           <Disclosure.Button
-            className={`flex w-full items-center justify-between rounded-none px-4 py-2 focus-visible:text-th-active md:hover:text-th-active ${
-              alignBottom
-                ? 'h-[64px] focus-visible:bg-th-bkg-3 md:hover:bg-th-bkg-2'
-                : ''
-            }`}
+            className={`flex w-full items-center justify-between rounded-none px-4 py-2 focus-visible:text-th-active md:hover:text-th-active ${alignBottom
+              ? 'h-[64px] focus-visible:bg-th-bkg-3 md:hover:bg-th-bkg-2'
+              : ''
+              }`}
           >
             <div className="flex items-center">
               <div
@@ -500,9 +497,8 @@ export const ExpandableMenuItem = ({
               </Transition>
             </div>
             <ChevronDownIcon
-              className={`${
-                open ? 'rotate-180' : 'rotate-360'
-              } h-5 w-5 flex-shrink-0`}
+              className={`${open ? 'rotate-180' : 'rotate-360'
+                } h-5 w-5 flex-shrink-0`}
             />
           </Disclosure.Button>
           <Transition
@@ -515,9 +511,8 @@ export const ExpandableMenuItem = ({
             leaveTo="opacity-0 max-h-0"
           >
             <Disclosure.Panel
-              className={`w-full overflow-hidden ${
-                themeData.sideImagePath ? 'z-10 bg-th-bkg-1 py-2' : ''
-              }`}
+              className={`w-full overflow-hidden ${themeData.sideImagePath ? 'z-10 bg-th-bkg-1 py-2' : ''
+                }`}
             >
               <div className={`${!alignBottom ? 'ml-1.5' : ''}`}>
                 {children}

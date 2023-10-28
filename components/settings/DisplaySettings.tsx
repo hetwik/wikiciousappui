@@ -10,12 +10,9 @@ import { TradeLayout } from '@components/trade/TradeAdvancedPage'
 import { ReactNode, useEffect, useState } from 'react'
 // import { useRouter } from 'next/router'
 // import { useCallback } from 'react'
-import dayjs from 'dayjs'
 import useLocalStorageState from 'hooks/useLocalStorageState'
 import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
-import { useCallback } from 'react'
-import { useRouter } from 'next/router'
 import {
   AUTO_CONNECT_WALLET,
   NOTIFICATION_POSITION_KEY,
@@ -37,19 +34,20 @@ const NOTIFICATION_POSITIONS = [
 const TRADING_CHARTS = ['custom', 'trading-view']
 const TRADE_FORM_UI = ['slider', 'buttons']
 
-const LANGS = [
-  { locale: 'en', name: 'english', description: 'english' },
-  // { locale: 'ru', name: 'russian', description: 'russian' },
-  // { locale: 'es', name: 'spanish', description: 'spanish' },
-  {
-    locale: 'zh_tw',
-    name: 'chinese-traditional',
-    description: 'traditional chinese',
-  },
-  // { locale: 'zh', name: 'chinese', description: 'simplified chinese' },
-]
+// const LANGS = [
+//   { locale: 'en', name: 'english', description: 'english' },
+//   // { locale: 'ru', name: 'russian', description: 'russian' },
+//   // { locale: 'es', name: 'spanish', description: 'spanish' },
+//   {
+//     locale: 'zh_tw',
+//     name: 'chinese-traditional',
+//     description: 'traditional chinese',
+//   },
+//   // { locale: 'zh', name: 'chinese', description: 'simplified chinese' },
+// ]
 
-const DEFAULT_THEMES = [
+/*
+const AVAILABLE_THEMES = [
   'light',
   'medium',
   'dark',
@@ -61,6 +59,12 @@ const DEFAULT_THEMES = [
   'lychee',
   'olive',
 ]
+*/
+const DEFAULT_THEMES = [
+  'high-contrast',
+  'dark',
+  'light',
+]
 
 const DisplaySettings = () => {
   const { t } = useTranslation(['common', 'settings'])
@@ -68,12 +72,12 @@ const DisplaySettings = () => {
   const [themes, setThemes] = useState(DEFAULT_THEMES)
   const nfts = mangoStore((s) => s.wallet.nfts.data)
 
-  const [savedLanguage, setSavedLanguage] = useLocalStorageState(
-    'language',
-    'en',
-  )
-  const router = useRouter()
-  const { pathname, asPath, query } = router
+  // const [savedLanguage, setSavedLanguage] = useLocalStorageState(
+  //   'language',
+  //   'en',
+  // )
+  // const router = useRouter()
+  // const { pathname, asPath, query } = router
   const [notificationPosition, setNotificationPosition] = useLocalStorageState(
     NOTIFICATION_POSITION_KEY,
     'bottom-left',
@@ -110,14 +114,16 @@ const DisplaySettings = () => {
     }
   }, [nfts])
 
-  const handleLangChange = useCallback(
-    (l: string) => {
-      setSavedLanguage(l)
-      router.push({ pathname, query }, asPath, { locale: l })
-      dayjs.locale(l == 'zh_tw' ? 'zh-tw' : l)
-    },
-    [router, pathname, query, asPath, setSavedLanguage],
-  )
+  // const handleLangChange = useCallback(
+  //   (l: string) => {
+  //     setSavedLanguage(l)
+  //     router.push({ pathname, query }, asPath, { locale: l })
+  //     dayjs.locale(l == 'zh_tw' ? 'zh-tw' : l)
+  //   },
+  //   [router, pathname, query, asPath, setSavedLanguage],
+  // )
+
+  console.log('this is theme: ', theme, themes, DEFAULT_THEMES[0])
 
   return (
     <>
@@ -138,6 +144,7 @@ const DisplaySettings = () => {
           </Select>
         </div>
       </div>
+      {/*
       <div className="flex flex-col border-t border-th-bkg-3 py-4 md:flex-row md:items-center md:justify-between md:px-4">
         <p className="mb-2 md:mb-0">{t('settings:language')}</p>
         <div className="w-full min-w-[220px] md:w-auto md:pl-4">
@@ -149,6 +156,7 @@ const DisplaySettings = () => {
           />
         </div>
       </div>
+      */}
       <div className="hidden border-t border-th-bkg-3 py-4 md:flex md:flex-row md:items-center md:justify-between md:px-4">
         <p className="mb-2 md:mb-0">{t('settings:notification-position')}</p>
         <div className="w-full min-w-[140px] md:w-auto">
@@ -245,11 +253,10 @@ const ChartLayoutButton = ({
   const [tradeLayout] = useLocalStorageState(TRADE_LAYOUT_KEY, 'chartLeft')
   return (
     <button
-      className={`flex h-max items-center justify-center rounded border ${
-        tradeLayout === position
-          ? 'border-th-active'
-          : 'border-th-bkg-4 md:hover:border-th-fgd-4'
-      } p-0.5 focus-visible:border-th-fgd-4`}
+      className={`flex h-max items-center justify-center rounded border ${tradeLayout === position
+        ? 'border-th-active'
+        : 'border-th-bkg-4 md:hover:border-th-fgd-4'
+        } p-0.5 focus-visible:border-th-fgd-4`}
       onClick={() => onClick(position)}
     >
       {icon}
