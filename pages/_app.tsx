@@ -103,7 +103,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Wikicious Markets</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-white.ico" />
         <meta property="og:title" content={metaTitle} />
         <meta name="description" content={metaDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
