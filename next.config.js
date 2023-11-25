@@ -10,7 +10,7 @@ const withPWAConfig = require('next-pwa')({
 })
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withPWA({
   i18n,
   images: {
     domains: ['raw.githubusercontent.com', 'arweave.net', 'www.dual.finance', 'shdw-drive.genesysgo.net'],
@@ -43,8 +43,7 @@ const nextConfig = {
 
     return config
   },
-}
-
+})
 module.exports = withSentryConfig(
   withPWAConfig(
     nextConfig,
